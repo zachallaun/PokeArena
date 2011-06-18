@@ -292,7 +292,7 @@ class FlareBlitz(PokeMoves):
 		abil_type = 'fire'
 		power = 120
 		acc = 100
-		effect = ['user_recoil_33']
+		effect = ['recoil_33']
 		effect_chance = 100
 		crit = 'yes'
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -383,7 +383,7 @@ class IceBeam(PokeMoves):
 		abil_type = 'ice'
 		power = 95
 		acc = 100
-		effect = ['frozen']
+		effect = ['freeze']
 		effect_chance = 10
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)

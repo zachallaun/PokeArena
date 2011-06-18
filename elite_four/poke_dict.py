@@ -3,7 +3,7 @@ from poke_moves import *
 
 class Pokemon(object):
 	
-	def __init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves):
+	def __init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status):
 		self.name = name
 		self.moredmg = moredmg
 		self.lessdmg = lessdmg
@@ -11,6 +11,7 @@ class Pokemon(object):
 		self.hp = hp
 		self.speed = speed
 		self.moves = moves
+		self.status = status
 	
 	
 	def handle_miss(self, abil_type, power, acc, effect, effect_chance, crit):
@@ -96,6 +97,17 @@ class Pokemon(object):
 		print "%s's HP: %d" % (self.name, self.hp)
 	
 	
+	def attack(self, target, move):
+		target.handle_miss(
+			self.moves[move].abil_type, 
+			self.moves[move].power,
+			self.moves[move].acc,
+			self.moves[move].effect,
+			self.moves[move].effect_chance,
+			self.moves[move].crit
+		)
+	
+	
 
 
 class Aerodactyl(Pokemon):
@@ -112,6 +124,7 @@ class Aerodactyl(Pokemon):
 			'move3':wingattack,
 			'move4':scaryface
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 	
@@ -132,6 +145,7 @@ class Alakazam(Pokemon):
 			'move3':recover,
 			'move4':reflect
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 	
@@ -152,6 +166,7 @@ class Arbok(Pokemon):
 			'move3':screech,
 			'move4':bite
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 	
@@ -172,6 +187,7 @@ class Charizard(Pokemon):
 			'move3':fly,
 			'move4':brickbreak
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 	
@@ -192,6 +208,7 @@ class Dewgong(Pokemon):
 			'move3':safeguard,
 			'move4':icebeam
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 	
@@ -212,6 +229,7 @@ class Dragonair(Pokemon):
 			'move3':dragonrush,
 			'move4':outrage
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 	
@@ -232,6 +250,7 @@ class Dragonite(Pokemon):
 			'move3':wingattack,
 			'move4':outrage
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -251,6 +270,7 @@ class Exeggutor(Pokemon):
 			'move3':sleeppowder,
 			'move4':lightscreen
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -270,6 +290,7 @@ class Gengar(Pokemon):
 			'move3':hypnosis,
 			'move4':dreameater
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -289,6 +310,7 @@ class Golbat(Pokemon):
 			'move3':aircutter,
 			'move4':poisonfang
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -308,6 +330,7 @@ class Gyarados(Pokemon):
 			'move3':icebeam,
 			'move4':darkpulse
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -327,6 +350,7 @@ class Hitmonchan(Pokemon):
 			'move3':rocktomb,
 			'move4':counter
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -346,6 +370,7 @@ class Lapras(Pokemon):
 			'move3':bodyslam,
 			'move4':confuseray
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -365,6 +390,7 @@ class Machamp(Pokemon):
 			'move3':rocktomb,
 			'move4':scaryface
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -384,6 +410,7 @@ class Mewtwo(Pokemon):
 			'move3':aurasphere,
 			'move4':energyball
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -403,6 +430,7 @@ class Onyx(Pokemon):
 			'move3':rocktomb,
 			'move4':irontail
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -422,6 +450,7 @@ class Rhydon(Pokemon):
 			'move3':scaryface,
 			'move4':rocktomb
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
@@ -441,5 +470,6 @@ class Slowbro(Pokemon):
 			'move3':yawn,
 			'move4':amnesia
 		}
+		status = None
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
