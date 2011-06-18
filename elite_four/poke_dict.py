@@ -11,6 +11,7 @@ class Pokemon(object):
 		self.speed = speed
 		self.moves = moves
 	
+	
 	def handle_miss(self, abil_type, power, acc, effect, effect_chance, crit):
 		
 		hit = None
@@ -42,6 +43,7 @@ class Pokemon(object):
 			effect = None
 			self.handle_dmg(abil_type, power, effect, crit)
 	
+	
 	def handle_dmg(self, abil_type, power, effect, crit):
 		
 		effective_dmg = None
@@ -61,6 +63,7 @@ class Pokemon(object):
 			print "This will be normally effective."
 			self.handle_crit(power, effect, crit)
 	
+	
 	def handle_crit(self, power, effect, crit):
 		
 		crit_chance = random()
@@ -79,15 +82,18 @@ class Pokemon(object):
 		else:
 			self.handle_hp(power)
 	
+	
 	def handle_effect(self, power, effect):
 		
 		print "%s now has %s!" % (self.name, effect.upper())
 		self.handle_hp(power)
 	
+	
 	def handle_hp(self, power):
 		
 		self.hp = self.hp - power
 		print "%s's HP: %d" % (self.name, self.hp)
+	
 	
 
 
@@ -107,6 +113,8 @@ class Aerodactyl(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+	
+
 
 class Alakazam(Pokemon):
 	
@@ -125,6 +133,8 @@ class Alakazam(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+	
+
 
 class Arbok(Pokemon):
 	
@@ -143,6 +153,8 @@ class Arbok(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+	
+
 
 class Charizard(Pokemon):
 	
@@ -161,6 +173,8 @@ class Charizard(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+	
+
 
 class Dewgong(Pokemon):
 	
@@ -179,6 +193,8 @@ class Dewgong(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+	
+
 
 class Dragonair(Pokemon):
 	
@@ -197,6 +213,8 @@ class Dragonair(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+	
+
 
 class Dragonite(Pokemon):
 	
@@ -216,6 +234,7 @@ class Dragonite(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
+
 class Exeggutor(Pokemon):
 	
 	def __init__(self):
@@ -233,6 +252,7 @@ class Exeggutor(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+
 
 class Gengar(Pokemon):
 	
@@ -252,6 +272,7 @@ class Gengar(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
+
 class Golbat(Pokemon):
 	
 	def __init__(self):
@@ -269,6 +290,7 @@ class Golbat(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+
 
 class Gyarados(Pokemon):
 	
@@ -288,6 +310,7 @@ class Gyarados(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
+
 class Hitmonchan(Pokemon):
 	
 	def __init__(self):
@@ -305,6 +328,7 @@ class Hitmonchan(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+
 
 class Lapras(Pokemon):
 	
@@ -324,6 +348,7 @@ class Lapras(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
+
 class Machamp(Pokemon):
 	
 	def __init__(self):
@@ -341,6 +366,7 @@ class Machamp(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+
 
 class Mewtwo(Pokemon):
 	
@@ -360,6 +386,7 @@ class Mewtwo(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
+
 class Onyx(Pokemon):
 	
 	def __init__(self):
@@ -378,6 +405,7 @@ class Onyx(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
 
+
 class Rhydon(Pokemon):
 	
 	def __init__(self):
@@ -395,6 +423,7 @@ class Rhydon(Pokemon):
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
+
 
 class Slowbro(Pokemon):
 	
