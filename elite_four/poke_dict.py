@@ -107,10 +107,10 @@ class Aerodactyl(Pokemon):
 		hp = 270
 		speed = 265
 		moves = {
-			'move1':'Hyper Beam',
-			'move2':'Ancient Power',
-			'move3':'Wing Attack',
-			'move4':'Scary Face'
+			'move1':hyperbeam,
+			'move2':ancientpower,
+			'move3':wingattack,
+			'move4':scaryface
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -127,10 +127,10 @@ class Alakazam(Pokemon):
 		hp = 220
 		speed = 245
 		moves = {
-			'move1':'Psychic',
-			'move2':'Future Sight',
-			'move3':'Recover',
-			'move4':'Reflect'
+			'move1':psychic,
+			'move2':futuresight,
+			'move3':recover,
+			'move4':reflect
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -147,10 +147,10 @@ class Arbok(Pokemon):
 		hp = 230
 		speed = 165
 		moves = {
-			'move1':'Sludge Bomb',
-			'move2':'Iron Tail',
-			'move3':'Screech',
-			'move4':'Bite'
+			'move1':sludgebomb,
+			'move2':irontail,
+			'move3':screech,
+			'move4':bite
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -167,10 +167,10 @@ class Charizard(Pokemon):
 		hp = 266
 		speed = 205
 		moves = {
-			'move1':'Flare Blitz',
-			'move2':'Flamethrower',
-			'move3':'Fly',
-			'move4':'Brick Break'
+			'move1':flareblitz,
+			'move2':flamethrower,
+			'move3':fly,
+			'move4':brickbreak
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -187,10 +187,10 @@ class Dewgong(Pokemon):
 		hp = 290
 		speed = 145
 		moves = {
-			'move1':'Surf',
-			'move2':'Hail',
-			'move3':'Safeguard',
-			'move4':'Ice Beam'
+			'move1':surf,
+			'move2':hail,
+			'move3':safeguard,
+			'move4':icebeam
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -207,10 +207,10 @@ class Dragonair(Pokemon):
 		hp = 232
 		speed = 145
 		moves = {
-			'move1':'Hyper Beam',
-			'move2':'Safeguard',
-			'move3':'Dragon Rush',
-			'move4':'Outrage'
+			'move1':hyperbeam,
+			'move2':safeguard,
+			'move3':dragonrush,
+			'move4':outrage
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -227,10 +227,10 @@ class Dragonite(Pokemon):
 		hp = 292
 		speed = 165
 		moves = {
-			'move1':'Hyper Beam',
-			'move2':'Safeguard',
-			'move3':'Wing Attack',
-			'move4':'Outrage'
+			'move1':hyperbeam,
+			'move2':safeguard,
+			'move3':wingattack,
+			'move4':outrage
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -246,10 +246,10 @@ class Exeggutor(Pokemon):
 		hp = 300
 		speed = 115
 		moves = {
-			'move1':'Giga Drain',
-			'move2':'Egg Bomb',
-			'move3':'Sleep Powder',
-			'move4':'Light Screen'
+			'move1':gigadrain,
+			'move2':eggbomb,
+			'move3':sleeppowder,
+			'move4':lightscreen
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -265,10 +265,10 @@ class Gengar(Pokemon):
 		hp = 230
 		speed = 225
 		moves = {
-			'move1':'Shadow Ball',
-			'move2':'Sludge Bomb',
-			'move3':'Hypnosis',
-			'move4':'Dream Eater'
+			'move1':shadowball,
+			'move2':sludgebomb,
+			'move3':hypnosis,
+			'move4':dreameater
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -284,10 +284,10 @@ class Golbat(Pokemon):
 		hp = 260
 		speed = 185
 		moves = {
-			'move1':'Confuse Ray',
-			'move2':'Bite',
-			'move3':'Air Cutter',
-			'move4':'Poison Fang'
+			'move1':confuseray,
+			'move2':bite,
+			'move3':aircutter,
+			'move4':poisonfang
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -303,10 +303,10 @@ class Gyarados(Pokemon):
 		hp = 300
 		speed = 167
 		moves = {
-			'move1':'Aqua Tail',
-			'move2':'Thunder',
-			'move3':'Ice Beam',
-			'move4':'Dark Pulse'
+			'move1':aquatail,
+			'move2':thunder,
+			'move3':icebeam,
+			'move4':darkpulse
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -322,10 +322,10 @@ class Hitmonchan(Pokemon):
 		hp = 210
 		speed = 250
 		moves = {
-			'move1':'Sky Uppercut',
-			'move2':'Mach Punch',
-			'move3':'Rock Tomb',
-			'move4':'Counter'
+			'move1':skyuppercut,
+			'move2':machpunch,
+			'move3':rocktomb,
+			'move4':counter
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -341,10 +341,10 @@ class Lapras(Pokemon):
 		hp = 370
 		speed = 125
 		moves = {
-			'move1':'Surf',
-			'move2':'Ice Beam',
-			'move3':'Body Slam',
-			'move4':'Confuse Ray'
+			'move1':surf,
+			'move2':icebeam,
+			'move3':bodyslam,
+			'move4':confuseray
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -360,10 +360,10 @@ class Machamp(Pokemon):
 		hp = 290
 		speed = 115
 		moves = {
-			'move1':'Cross Chop',
-			'move2':'Bulk Up',
-			'move3':'Rock Tomb',
-			'move4':'Scary Face'
+			'move1':crosschop,
+			'move2':bulkup,
+			'move3':rocktomb,
+			'move4':scaryface
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -379,10 +379,10 @@ class Mewtwo(Pokemon):
 		hp = 322
 		speed = 265
 		moves = {
-			'move1':'Psychic',
-			'move2':'Recover',
-			'move3':'Aura Sphere',
-			'move4':'Energy Ball'
+			'move1':psychic,
+			'move2':recover,
+			'move3':aurasphere,
+			'move4':energyball
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -398,10 +398,10 @@ class Onyx(Pokemon):
 		hp = 340
 		speed = 145
 		moves = {
-			'move1':'Earthquake',
-			'move2':'Roar',
-			'move3':'Rock Tomb',
-			'move4':'Iron Tail'
+			'move1':earthquake,
+			'move2':roar,
+			'move3':rocktomb,
+			'move4':irontail
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -417,10 +417,10 @@ class Rhydon(Pokemon):
 		hp = 320
 		speed = 85
 		moves = {
-			'move1':'Take Down',
-			'move2':'Earthquake',
-			'move3':'Scary Face',
-			'move4':'Rock Tomb'
+			'move1':takedown,
+			'move2':earthquake,
+			'move3':scaryface,
+			'move4':rocktomb
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
@@ -436,10 +436,10 @@ class Slowbro(Pokemon):
 		hp = 300
 		speed = 65
 		moves = {
-			'move1':'Surf',
-			'move2':'Ice Beam',
-			'move3':'Yawn',
-			'move4':'Amnesia'
+			'move1':surf,
+			'move2':icebeam,
+			'move3':yawn,
+			'move4':amnesia
 		}
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves)
 	
