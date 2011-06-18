@@ -1,4 +1,5 @@
 from random import random, randint
+from poke_moves import *
 
 class Pokemon(object):
 	
