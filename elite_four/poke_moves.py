@@ -1,3 +1,5 @@
+from poke_effects import *
+
 class PokeMoves(object):
 	
 	def __init__(self, name, abil_type, power, acc, effect, effect_chance, crit):
@@ -39,27 +41,14 @@ class AirCutter(PokeMoves):
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 
 aircutter = AirCutter()
-class Amnesia(PokeMoves):
-	def __init__(self):
-		name = "Amnesia"
-		abil_type = 'psychic'
-		power = 0
-		acc = 100
-		effect = ['def_up_2']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-amnesia = Amnesia()
 class AncientPower(PokeMoves):
 	def __init__(self):
-		name = "Ancient Poer"
+		name = "Ancient Power"
 		abil_type = 'rock'
 		power = 60
 		acc = 100
-		effect = ['atk_up_1','def_up_1']
-		effect_chance = 20
+		effect = None
+		effect_chance = 0
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
@@ -97,7 +86,7 @@ class Bite(PokeMoves):
 		abil_type = 'dark'
 		power = 65
 		acc = 100
-		effect = ['flinch']
+		effect = flinch
 		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -110,7 +99,7 @@ class BodySlam(PokeMoves):
 		abil_type = 'normal'
 		power = 85
 		acc = 100
-		effect = ['paralyze']
+		effect = paralyze
 		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -130,45 +119,6 @@ class BrickBreak(PokeMoves):
 	
 
 brickbreak = BrickBreak()
-class BulkUp(PokeMoves):
-	def __init__(self):
-		name = "Bulk Up"
-		abil_type = 'fight'
-		power = 0
-		acc = 100
-		effect = ['atk_up_1','def_up_1']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-bulkup = BulkUp()
-class ConfuseRay(PokeMoves):
-	def __init__(self):
-		name = "Confuse Ray"
-		abil_type = 'ghost'
-		power = 0
-		acc = 100
-		effect = ['confuse']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-confuseray = ConfuseRay()
-class Counter(PokeMoves):
-	def __init__(self):
-		name = "Counter"
-		abil_type = 'fight'
-		power = 0
-		acc = 100
-		effect = ['counter']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-counter = Counter()
 class CrossChop(PokeMoves):
 	def __init__(self):
 		name = "Cross Chop"
@@ -188,7 +138,7 @@ class DarkPulse(PokeMoves):
 		abil_type = 'dark'
 		power = 80
 		acc = 100
-		effect = ['flinch']
+		effect = flinch
 		effect_chance = 20
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -201,26 +151,13 @@ class DragonRush(PokeMoves):
 		abil_type = 'dragon'
 		power = 100
 		acc = 75
-		effect = ['flinch']
+		effect = flinch
 		effect_chance = 20
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 dragonrush = DragonRush()
-class DreamEater(PokeMoves):
-	def __init__(self):
-		name = "Dream Eater"
-		abil_type = 'psychic'
-		power = 100
-		acc = 100
-		effect = ['user_hp_50','must_asleep']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-dreameater = DreamEater()
 class Earthquake(PokeMoves):
 	def __init__(self):
 		name = "Earthquake"
@@ -253,20 +190,33 @@ class EnergyBall(PokeMoves):
 		abil_type = 'grass'
 		power = 80
 		acc = 100
-		effect = ['def_down_1']
-		effect_chance = 10
+		effect = None
+		effect_chance = 0
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 energyball = EnergyBall()
+class FirePunch(PokeMoves):
+	def __init__(self):
+		name = "Fire Punch"
+		abil_type = 'fire'
+		power = 75
+		acc = 100
+		effect = burn
+		effect_chance = 10
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+firepunch = FirePunch()
 class FireSpin(PokeMoves):
 	def __init__(self):
 		name = "Fire Spin"
 		abil_type = 'fire'
 		power = 35
 		acc = 85
-		effect = ['fire_spin']
+		effect = fire_spin_effect
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -279,7 +229,7 @@ class Flamethrower(PokeMoves):
 		abil_type = 'fire'
 		power = 95
 		acc = 100
-		effect = ['burn']
+		effect = burn
 		effect_chance = 10
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -288,102 +238,76 @@ class Flamethrower(PokeMoves):
 flamethrower = Flamethrower()
 class FlareBlitz(PokeMoves):
 	def __init__(self):
-		name = "FlareBlitz"
+		name = "Flare Blitz"
 		abil_type = 'fire'
 		power = 120
 		acc = 100
-		effect = ['recoil_33']
+		effect = recoil
 		effect_chance = 100
 		crit = 'yes'
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 flareblitz = FlareBlitz()
-class Fly(PokeMoves):
-	def __init__(self):
-		name = "Fly"
-		abil_type = 'flying'
-		power = 0
-		acc = 100
-		effect = ['fly_user','fly_target']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-fly = Fly()
-class FutureSight(PokeMoves):
-	def __init__(self):
-		name = "Future Sight"
-		abil_type = 'psychic'
-		power = 0
-		acc = 100
-		effect = ['future_sight']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-futuresight = FutureSight()
 class GigaDrain(PokeMoves):
 	def __init__(self):
 		name = "Giga Drain"
 		abil_type = 'grass'
 		power = 75
 		acc = 100
-		effect = ['user_hp_50']
-		effect_chance = 0
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-gigadrain = GigaDrain()
-class Hail(PokeMoves):
-	def __init__(self):
-		name = "Hail"
-		abil_type = 'ice'
-		power = 0
-		acc = 100
-		effect = ['hail']
+		effect = user_hp_50
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
-hail = Hail()
+gigadrain = GigaDrain()
+class GigaImpact(PokeMoves):
+	def __init__(self):
+		name = "Giga Impact"
+		abil_type = 'normal'
+		power = 150
+		acc = 90
+		effect = recharge
+		effect_chance = 100
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+gigaimpact = GigaImpact()
+class GunkShot(PokeMoves):
+	def __init__(self):
+		name = "Gunk Shot"
+		abil_type = 'poison'
+		power = 120
+		acc = 70
+		effect = poison
+		effect_chance = 30
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+gunkshot = GunkShot()
 class HyperBeam(PokeMoves):
 	def __init__(self):
 		name = "Hyper Beam"
 		abil_type = 'normal'
 		power = 150
 		acc = 90
-		effect = ['recharge']
+		effect = recharge
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 hyperbeam = HyperBeam()
-class Hypnosis(PokeMoves):
-	def __init__(self):
-		name = "Hypnosis"
-		abil_type = 'psychic'
-		power = 0
-		acc = 100
-		effect = ['sleep']
-		effect_chance = 70
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-hypnosis = Hypnosis()
 class IceBeam(PokeMoves):
 	def __init__(self):
 		name = "Ice Beam"
 		abil_type = 'ice'
 		power = 95
 		acc = 100
-		effect = ['freeze']
+		effect = freeze
 		effect_chance = 10
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -396,182 +320,169 @@ class IronTail(PokeMoves):
 		abil_type = 'steel'
 		power = 100
 		acc = 75
-		effect = ['def_down_1']
+		effect = None
 		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 irontail = IronTail()
-class LightScreen(PokeMoves):
+class LeafStorm(PokeMoves):
 	def __init__(self):
-		name = "Light Screen"
-		abil_type = 'psychic'
-		power = 0
-		acc = 100
-		effect = ['dmg_down_30']
+		name = "Leaf Storm"
+		abil_type = 'grass'
+		power = 120
+		acc = 90
+		effect = recoil
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
-lightscreen = LightScreen()
+leafstorm = LeafStorm()
+class Lick(PokeMoves):
+	def __init__(self):
+		name = "Lick"
+		abil_type = 'ghost'
+		power = 50
+		acc = 100
+		effect = paralyze
+		effect_chance = 50
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+lick = Lick()
 class MachPunch(PokeMoves):
 	def __init__(self):
 		name = "Mach Punch"
 		abil_type = 'fight'
-		power = 50
+		power = 80
 		acc = 100
-		effect = ['hit_first']
+		effect = None
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 machpunch = MachPunch()
-class Outrage(PokeMoves):
-	def __init__(self):
-		name = "Outrage"
-		abil_type = 'dragon'
-		power = 120
-		acc = 100
-		effect = ['outrage']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-outrage = Outrage()
 class PoisonFang(PokeMoves):
 	def __init__(self):
 		name = "Poison Fang"
 		abil_type = 'poison'
 		power = 50
 		acc = 100
-		effect = ['poison']
+		effect = poison
 		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 poisonfang = PoisonFang()
+class PoisonJab(PokeMoves):
+	def __init__(self):
+		name = "Poison Jab"
+		abil_type = 'poison'
+		power = 80
+		acc = 100
+		effect = poison
+		effect_chance = 10
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+poisonjab = PoisonJab()
 class Psychic(PokeMoves):
 	def __init__(self):
 		name = "Psychic"
 		abil_type = 'psychic'
 		power = 90
 		acc = 100
-		effect = ['def_down_1']
-		effect_chance = 10
+		effect = None
+		effect_chance = 0
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 psychic = Psychic()
+class Psyshock(PokeMoves):
+	def __init__(self):
+		name = "Psyshock"
+		abil_type = 'psychic'
+		power = 80
+		acc = 100
+		effect = None
+		effect_chance = 0
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+psyshock = Psyshock()
 class Recover(PokeMoves):
 	def __init__(self):
 		name = "Recover"
 		abil_type = 'normal'
 		power = 0
 		acc = 100
-		effect = ['recover']
+		effect = recover_effect
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 recover = Recover()
-class Reflect(PokeMoves):
-	def __init__(self):
-		name = "Reflect"
-		abil_type = 'psychic'
-		power = 0
-		acc = 100
-		effect = ['reflect']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-reflect = Reflect()
-class Roar(PokeMoves):
-	def __init__(self):
-		name = "Roar"
-		abil_type = 'normal'
-		power = 0
-		acc = 100
-		effect = ['roar']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-roar = Roar()
 class RockTomb(PokeMoves):
 	def __init__(self):
 		name = "Rock Tomb"
 		abil_type = 'rock'
-		power = 50
-		acc = 80
-		effect = ['speed_down_1']
+		power = 80	
+		acc = 95
+		effect = None
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 rocktomb = RockTomb()
-class Safeguard(PokeMoves):
-	def __init__(self):
-		name = "Safeguard"
-		abil_type = 'normal'
-		power = 0
-		acc = 100
-		effect = ['safeguard']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-safeguard = Safeguard()
-class ScaryFace(PokeMoves):
-	def __init__(self):
-		name = "Scary Face"
-		abil_type = 'normal'
-		power = 0
-		acc = 100
-		effect = ['speed_down_2']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-scaryface = ScaryFace()
-class Screech(PokeMoves):
-	def __init__(self):
-		name = "Screech"
-		abil_type = 'normal'
-		power = 0
-		acc = 100
-		effect = ['def_down_2']
-		effect_chance = 85
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-screech = Screech()
 class ShadowBall(PokeMoves):
 	def __init__(self):
 		name = "Shadow Ball"
 		abil_type = 'ghost'
 		power = 80
 		acc = 100
-		effect = ['def_down_1']
+		effect = None
 		effect_chance = 20
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 shadowball = ShadowBall()
+class SheerCold(PokeMoves):
+	def __init__(self):
+		name = 'Sheer Cold'
+		abil_type = 'ice'
+		power = 0
+		acc = 30
+		effect = sheer_cold_effect
+		effect_chance = 100
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+sheercold = SheerCold()
+class SignalBeam(PokeMoves):
+	def __init__(self):
+		name = 'Signal Beam'
+		abil_type = 'bug'
+		power = 80
+		acc = 100
+		effect = None
+		effect_chance = 0
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+signalbeam = SignalBeam()
 class SkyUppercut(PokeMoves):
 	def __init__(self):
 		name = "Sky Uppercut"
@@ -598,32 +509,32 @@ class Slash(PokeMoves):
 	
 
 slash = Slash()
-class SleepPowder(PokeMoves):
-	def __init__(self):
-		name = "Sleep Powder"
-		abil_type = 'grass'
-		power = 0
-		acc = 75
-		effect = ['sleep']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-sleeppowder = SleepPowder()
 class SludgeBomb(PokeMoves):
 	def __init__(self):
 		name = "Sludge Bomb"
 		abil_type = 'poison'
 		power = 90
 		acc = 100
-		effect = ['poison']
+		effect = poison
 		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 sludgebomb = SludgeBomb()
+class StoneEdge(PokeMoves):
+	def __init__(self):
+		name = "Stone Edge"
+		abil_type = 'rock'
+		power = 100
+		acc = 80
+		effect = None
+		effect_chance = 0
+		crit = 'yes'
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+stoneedge = StoneEdge()
 class Surf(PokeMoves):
 	def __init__(self):
 		name = "Surf"
@@ -641,9 +552,9 @@ class TakeDown(PokeMoves):
 	def __init__(self):
 		name = "Take Down"
 		abil_type = 'normal'
-		power = 90
-		acc = 85
-		effect = ['recoil_25']
+		power = 95
+		acc = 90
+		effect = recoil
 		effect_chance = 100
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
@@ -656,18 +567,57 @@ class Thunder(PokeMoves):
 		abil_type = 'electric'
 		power = 120
 		acc = 70
-		effect = ['paralyze']
+		effect = paralyze
 		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
 
 thunder = Thunder()
+class ThunderBolt(PokeMoves):
+	def __init__(self):
+		name = "Thunder Bolt"
+		abil_type = 'electric'
+		power = 95
+		acc = 100
+		effect = paralyze
+		effect_chance = 10
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+thunderbolt = ThunderBolt()
+class ThunderWave(PokeMoves):
+	def __init__(self):
+		name = "Thunder Wave"
+		abil_type = 'electric'
+		power = 0
+		acc = 100
+		effect = paralyze
+		effect_chance = 100
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+thunderwave = ThunderWave()
+class Toxic(PokeMoves):
+	def __init__(self):
+		name = "Toxic"
+		abil_type = 'poison'
+		power = 0
+		acc = 90
+		effect = poison
+		effect_chance = 100
+		crit = None
+		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
+	
+
+toxic = Toxic()
 class WingAttack(PokeMoves):
 	def __init__(self):
 		name = "Wing Attack"
 		abil_type = 'flying'
-		power = 60
+		power = 75
 		acc = 100
 		effect = None
 		effect_chance = 0
@@ -676,16 +626,3 @@ class WingAttack(PokeMoves):
 	
 
 wingattack = WingAttack()
-class Yawn(PokeMoves):
-	def __init__(self):
-		name = "Yawn"
-		abil_type = 'normal'
-		power = 0
-		acc = 100
-		effect = ['yawn']
-		effect_chance = 100
-		crit = None
-		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
-	
-
-yawn = Yawn()

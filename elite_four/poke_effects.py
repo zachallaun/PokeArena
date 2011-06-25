@@ -1,231 +1,140 @@
 class Effect(object):
-	
-	def __init__(self, effect, effect_dict):
-		self.effect = effect
+	def __init__(self, effect_dict):
 		self.effect_dict = effect_dict
 	
+
 	
-
-
-class AtkUp(Effect):
-	def __init__(self):
-		effect = 'atk_up'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
 class Burn(Effect):
 	def __init__(self):
-		effect = 'burn'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': 'perm',
+			'status': 'BRN',
+			'printed': '%s has been burned!',
+			'effect_dmg': 25
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class Confuse(Effect):
-	def __init__(self):
-		effect = 'confuse'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class Counter(Effect):
-	def __init__(self):
-		effect = 'counter'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class DefUp(Effect):
-	def __init__(self):
-		effect = 'def_up'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class DmgDown(Effect):
-	def __init__(self):
-		effect = 'dmg_down'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
+burn = Burn()
 class FireSpinEffect(Effect):
 	def __init__(self):
-		effect = 'fire_spin_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': '4',
+			'status': 'FRS',
+			'printed': '%s has been caught in Fire Spin!',
+			'effect_dmg': 30
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
+fire_spin_effect = FireSpinEffect()
 class Flinch(Effect):
 	def __init__(self):
-		effect = 'flinch'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': 0,
+			'printed': '%s flinched!',
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class FlyTarget(Effect):
-	def __init__(self):
-		effect = 'fly_target'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class FlyUser(Effect):
-	def __init__(self):
-		effect = 'fly_user'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
+flinch = Flinch()
 class Freeze(Effect):
 	def __init__(self):
-		effect = 'freeze'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': 5,
+			'status': 'FRZ',
+			'printed': '%s has been frozen!',
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class FutureSightEffect(Effect):
-	def __init__(self):
-		effect = 'future_sight_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class HailEffect(Effect):
-	def __init__(self):
-		effect = 'hail_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class HitFirst(Effect):
-	def __init__(self):
-		effect = 'hit_first'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class MustAsleep(Effect):
-	def __init__(self):
-		effect = 'must_asleep'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class OutrageEffect(Effect):
-	def __init__(self):
-		effect = 'outrage_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
+freeze = Freeze()
 class Paralyze(Effect):
 	def __init__(self):
-		effect = 'paralyze'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': 'perm',
+			'status': 'PAR',
+			'printed': '%s has been paralyzed! It may be unable to move!',
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
+paralyze = Paralyze()
 class Poison(Effect):
 	def __init__(self):
-		effect = 'poison'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': 'perm',
+			'status': 'PSN',
+			'printed': '%s has been poisoned!',
+			'effect_dmg': 25
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
+poison = Poison()
 class Recharge(Effect):
 	def __init__(self):
-		effect = 'recharge'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'self',
+			'duration': 1,
+			'status': 'RCH',
+			'printed': '%s must recharge!',
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class RecoilFourth(Effect):
+recharge = Recharge()
+class Recoil(Effect):
 	def __init__(self):
-		effect = 'recoil_25'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'self',
+			'duration': 0,
+			'printed': '%s is hit with recoil!',
+			'effect_dmg': 30
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class RecoilThird(Effect):
-	def __init__(self):
-		effect = 'recoil_33'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
+recoil = Recoil()
 class RecoverEffect(Effect):
 	def __init__(self):
-		effect = 'recover_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'self',
+			'duration': 0,
+			'printed': '%s gains health with Recover!',
+			'effect_heal': 150
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class ReflectEffect(Effect):
+recover_effect = RecoverEffect()
+class SheerColdEffect(Effect):
 	def __init__(self):
-		effect = 'reflect_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'enemy',
+			'duration': 'perm',
+			'status': 'FNT',
+			'printed': '%s was hit by Sheer Cold! It\'s a one-hit KO!',
+		}
+		Effect.__init__(self, effect_dict)
 	
 
-
-class RoarEffect(Effect):
-	def __init__(self):
-		effect = 'roar_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class SafeguardEffect(Effect):
-	def __init__(self):
-		effect = 'safeguard_effect'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class Sleep(Effect):
-	def __init__(self):
-		effect = 'sleep'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
-class SpeedDown(Effect):
-	def __init__(self):
-		effect = 'speed_down'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
-	
-
-
+sheer_cold_effect = SheerColdEffect()
 class UserHealHalf(Effect):
 	def __init__(self):
-		effect = 'user_hp_50'
-		effect_dict = {}
-		Effect.__init__(self, effect, effect_dict)
+		effect_dict = {
+			'target': 'self',
+			'duration': 0,
+			'printed': '%s is healed by %s!',
+			'effect_heal': 50
+		}
+		Effect.__init__(self, effect_dict)
 	
+
+user_hp_50 = UserHealHalf()
