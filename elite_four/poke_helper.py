@@ -58,14 +58,46 @@ def ally_attack(ally, enemy, move):
 	print "\t%s uses %s!" % (ally.name, move)
 	if move == ally.moves['move1'].name:
 		ally.attack(enemy, 'move1')
+		
+		if ally.moves['move1'].effect != None and ally.moves['move1'].effect.effect_dict['target'] == 'self':
+			ally.pass_effect(
+				ally, 
+				ally.moves['move1'].effect,
+				ally.moves['move1'].effect_chance
+			)
+			
 	elif move == ally.moves['move2'].name:
 		ally.attack(enemy, 'move2')
+		
+		if ally.moves['move2'].effect != None and ally.moves['move1'].effect.effect_dict['target'] == 'self':
+			ally.pass_effect(
+				ally, 
+				ally.moves['move2'].effect,
+				ally.moves['move2'].effect_chance
+			)
+		
 	elif move == ally.moves['move3'].name:
 		ally.attack(enemy, 'move3')
+		
+		if ally.moves['move3'].effect != None and ally.moves['move1'].effect.effect_dict['target'] == 'self':
+			ally.pass_effect(
+				ally, 
+				ally.moves['move3'].effect,
+				ally.moves['move3'].effect_chance
+			)
+		
 	elif move == ally.moves['move4'].name:
 		ally.attack(enemy, 'move4')
+		
+		if ally.moves['move4'].effect != None and ally.moves['move1'].effect.effect_dict['target'] == 'self':
+			ally.pass_effect(
+				ally, 
+				ally.moves['move4'].effect,
+				ally.moves['move4'].effect_chance
+			)
+		
 	else:
-		print "Say what?"
+		print "\tNot sure what you mean. Be more careful typing."
 
 
 def enemy_attack(ally, enemy):
@@ -83,5 +115,6 @@ def check_faint(ally, enemy):
 		print space
 		print "\t%s fainted!" % enemy.name
 		exit(1)
+
 
 start()

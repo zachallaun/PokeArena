@@ -10,8 +10,8 @@ class Burn(Effect):
 			'target': 'enemy',
 			'duration': 'perm',
 			'status': 'BRN',
-			'printed': '%s has been burned!',
-			'effect_dmg': 25
+			'printed': '\t%s has been burned!',
+			'effect_pwr': 25
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -21,10 +21,10 @@ class FireSpinEffect(Effect):
 	def __init__(self):
 		effect_dict = {
 			'target': 'enemy',
-			'duration': '4',
+			'duration': 4,
 			'status': 'FRS',
-			'printed': '%s has been caught in Fire Spin!',
-			'effect_dmg': 30
+			'printed': '\t%s has been caught in Fire Spin!',
+			'effect_pwr': 30
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -35,7 +35,7 @@ class Flinch(Effect):
 		effect_dict = {
 			'target': 'enemy',
 			'duration': 0,
-			'printed': '%s flinched!',
+			'printed': '\t%s flinched!',
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -47,7 +47,7 @@ class Freeze(Effect):
 			'target': 'enemy',
 			'duration': 5,
 			'status': 'FRZ',
-			'printed': '%s has been frozen!',
+			'printed': '\t%s has been frozen!',
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -59,7 +59,7 @@ class Paralyze(Effect):
 			'target': 'enemy',
 			'duration': 'perm',
 			'status': 'PAR',
-			'printed': '%s has been paralyzed! It may be unable to move!',
+			'printed': '\t%s has been paralyzed! It may be unable to move!',
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -71,8 +71,8 @@ class Poison(Effect):
 			'target': 'enemy',
 			'duration': 'perm',
 			'status': 'PSN',
-			'printed': '%s has been poisoned!',
-			'effect_dmg': 25
+			'printed': '\t%s has been poisoned!',
+			'effect_pwr': 25
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -84,7 +84,7 @@ class Recharge(Effect):
 			'target': 'self',
 			'duration': 1,
 			'status': 'RCH',
-			'printed': '%s must recharge!',
+			'printed': '\t%s must recharge!',
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -95,8 +95,8 @@ class Recoil(Effect):
 		effect_dict = {
 			'target': 'self',
 			'duration': 0,
-			'printed': '%s is hit with recoil!',
-			'effect_dmg': 30
+			'printed': '\t%s is hit with recoil!',
+			'effect_pwr': 30
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -107,8 +107,8 @@ class RecoverEffect(Effect):
 		effect_dict = {
 			'target': 'self',
 			'duration': 0,
-			'printed': '%s gains health with Recover!',
-			'effect_heal': 150
+			'printed': '\t%s gains health with Recover!',
+			'effect_pwr': 150
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -120,7 +120,7 @@ class SheerColdEffect(Effect):
 			'target': 'enemy',
 			'duration': 'perm',
 			'status': 'FNT',
-			'printed': '%s was hit by Sheer Cold! It\'s a one-hit KO!',
+			'printed': '\t%s was hit by Sheer Cold! It\'s a one-hit KO!',
 		}
 		Effect.__init__(self, effect_dict)
 	
@@ -131,8 +131,8 @@ class UserHealHalf(Effect):
 		effect_dict = {
 			'target': 'self',
 			'duration': 0,
-			'printed': '%s is healed by %s!',
-			'effect_heal': 50
+			'printed': '\t%s is healed by %s!',
+			'effect_pwr': 50
 		}
 		Effect.__init__(self, effect_dict)
 	

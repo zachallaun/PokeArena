@@ -14,55 +14,38 @@ class Pokemon(object):
 		self.status = status
 	
 	
-	def handle_miss(self, abil_type, power, acc, effect, effect_chance, crit):
+	def handle_miss(self, abil_type, power, acc, crit):
 		
-		hit = None
 		miss = random()
 		miss_chance = acc / 100.0
 		
 		if miss < miss_chance:
-			hit = 1	
+			self.handle_dmg(abil_type, power, crit)
+			
 		else:
-			hit = 0
 			print "\tThe attack misses!"
-			power = 0
-		
-		e_hit = None
-		e_miss = random()
-		e_miss_chance = effect_chance / 100.0
-		
-		if e_miss < e_miss_chance:
-			e_hit = 1
-		else:
-			e_hit = 0
-		
-		if e_hit == 1:
-			self.handle_dmg(abil_type, power, effect, crit)
-		else:
-			effect = None
-			self.handle_dmg(abil_type, power, effect, crit)
 	
 	
-	def handle_dmg(self, abil_type, power, effect, crit):
+	def handle_dmg(self, abil_type, power, crit):
 		
 		effective_dmg = None
 		
 		if abil_type in self.moredmg:
 			power = power * 2
 			print "\tIt's super effective!"
-			self.handle_crit(power, effect, crit)
+			self.handle_crit(power, crit)
 		elif abil_type in self.lessdmg:
 			power = power / 2
 			print "\tIt's not very effective..."
-			self.handle_crit(power, effect, crit)
+			self.handle_crit(power, crit)
 		elif abil_type in self.nodmg:
 			power = 0
 			print "\tIt doesn't affect %s." % self.name	
 		else:
-			self.handle_crit(power, effect, crit)
+			self.handle_crit(power, crit)
 	
 	
-	def handle_crit(self, power, effect, crit):
+	def handle_crit(self, power, crit):
 		
 		crit_chance = random()
 		
@@ -73,13 +56,6 @@ class Pokemon(object):
 			power = power + (power * .5)
 			print "\tIt's a critical hit!"
 		
-		if effect != None:
-			self.handle_effect(power, effect)
-		else:
-			self.handle_hp(power)
-	
-	
-	def handle_effect(self, power, effect):
 		self.handle_hp(power)
 	
 	
@@ -94,10 +70,34 @@ class Pokemon(object):
 			self.moves[move].abil_type, 
 			self.moves[move].power,
 			self.moves[move].acc,
-			self.moves[move].effect,
-			self.moves[move].effect_chance,
 			self.moves[move].crit
 		)
+	
+	
+	def pass_effect(self, target, effect, effect_chance):
+		target.handle_effect(effect, effect_chance)
+	
+	
+	def handle_effect(self, effect, effect_chance):
+		
+		e_miss = random()
+		e_miss_chance = effect_chance / 100.0
+		
+		if e_miss < e_miss_chance:
+			
+			if effect.effect_dict['target'] == 'self':
+				self.hp = self.hp + effect.effect_dict['effect_pwr']
+			
+			try:
+				self.status = effect.effect_dict['status']
+			except:
+				pass
+				
+			print effect.effect_dict['printed'] % self.name
+				
+			
+		else:
+			effect = None
 	
 	
 
