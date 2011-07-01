@@ -1,21 +1,30 @@
-import poke_dict
-
 BRN = {
 	'status':'BRN',
 	'report':'%s is hurt by burn!',
 	'effect_pwr': 25,
 }
-
 PSN = {
 	'status':'PSN',
 	'report':'%s is hurt by poison!',
 	'effect_pwr': 25,
 }
-
 FS = {
 	'status':'FS',
 	'report':'%s is hurt in the Fire Spin!',
 	'effect_pwr':30,
+}
+end_of = [BRN, PSN, FS]
+
+FRZ = {
+	'status':'FRZ'
+}
+PAR = {
+	'status':'PAR'
+}
+beg_of = [FRZ, PAR]
+
+FNT = {
+	'status':'FNT'
 }
 
 class Effect(object):
@@ -63,7 +72,7 @@ class Freeze(Effect):
 		effect_dict = {
 			'target': 'enemy',
 			'duration': 'perm',
-			'status': 'FRZ',
+			'status': FRZ,
 			'printed': '%s has been frozen!',
 		}
 		Effect.__init__(self, effect_dict)
@@ -75,7 +84,7 @@ class Paralyze(Effect):
 		effect_dict = {
 			'target': 'enemy',
 			'duration': 'perm',
-			'status': 'PAR',
+			'status': PAR,
 			'printed': '%s has been paralyzed! It may be unable to move!',
 		}
 		Effect.__init__(self, effect_dict)
@@ -98,7 +107,6 @@ class Recharge(Effect):
 	def __init__(self):
 		effect_dict = {
 			'target': 'self',
-			'status': 'RCH',
 			'printed': '%s must recharge!',
 		}
 		Effect.__init__(self, effect_dict)
@@ -132,8 +140,9 @@ class SheerColdEffect(Effect):
 		effect_dict = {
 			'target': 'enemy',
 			'duration': 'perm',
-			'status': 'FNT',
+			'status': FNT,
 			'printed': '%s was hit by Sheer Cold! It\'s a one-hit KO!',
+			'effect_pwr': 1000
 		}
 		Effect.__init__(self, effect_dict)
 	

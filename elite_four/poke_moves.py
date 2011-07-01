@@ -149,8 +149,8 @@ class DragonRush(PokeMoves):
 	def __init__(self):
 		name = "Dragon Rush"
 		abil_type = 'dragon'
-		power = 100
-		acc = 75
+		power = 75
+		acc = 100
 		effect = flinch
 		effect_chance = 20
 		crit = None
@@ -214,8 +214,8 @@ class FireSpin(PokeMoves):
 	def __init__(self):
 		name = "Fire Spin"
 		abil_type = 'fire'
-		power = 35
-		acc = 85
+		power = 30
+		acc = 100
 		effect = fire_spin_effect
 		effect_chance = 100
 		crit = None
@@ -462,9 +462,9 @@ class SheerCold(PokeMoves):
 		name = 'Sheer Cold'
 		abil_type = 'ice'
 		power = 0
-		acc = 30
+		acc = 100
 		effect = sheer_cold_effect
-		effect_chance = 100
+		effect_chance = 30
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	
@@ -605,9 +605,9 @@ class Toxic(PokeMoves):
 		name = "Toxic"
 		abil_type = 'poison'
 		power = 0
-		acc = 90
+		acc = 100
 		effect = poison
-		effect_chance = 100
+		effect_chance = 90
 		crit = None
 		PokeMoves.__init__(self, name, abil_type, power, acc, effect, effect_chance, crit)
 	

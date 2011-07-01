@@ -32,11 +32,11 @@ Please pick an ally and an enemy."""
 
 
 def battle(ally, enemy, retry = False):
-	
+	ally.type = 'usr'
+	enemy.type = 'ai'
 	while ally.hp > 0 and enemy.hp > 0:
 		print space
-		print "%s %s" % (ally.name.ljust(15), display_hp(ally))
-		print "%s %s" % (enemy.name.ljust(15), display_hp(enemy))
+		print_hp(ally, enemy)
 		print space
 		if retry:
 			print "%s doesn't know what to do!" % ally.name
@@ -44,6 +44,7 @@ def battle(ally, enemy, retry = False):
 		print ally.moves['move1'].name.ljust(20), ally.moves['move2'].name.ljust(20), "\n", ally.moves['move3'].name.ljust(20), ally.moves['move4'].name.ljust(20)
 			
 		move = raw_input(">>> ").lower()
+		enemy_move = 'move%d' % randint(1, 4)
 		
 		for i in range(1,5):
 			if ally.moves['move%d' % i].name.lower().startswith(move):				
@@ -53,38 +54,38 @@ def battle(ally, enemy, retry = False):
 		else:
 			battle(ally, enemy, retry = True)
 		
+		ally.hit = 0
+		enemy.hit = 0
+		
 		if ally.speed > enemy.speed:
-			ally_attack(ally, enemy, move)
-			check_faint(ally, enemy)
-			print space
-			enemy_attack(ally, enemy)
-			check_faint(ally, enemy)
+			status_beg_of(ally, enemy, move, enemy_move)
 		else:
-			enemy_attack(ally, enemy)
-			check_faint(ally, enemy)
-			print space
-			ally_attack(ally, enemy, move)
-			check_faint(ally, enemy)
+			status_beg_of(enemy, ally, enemy_move, move)
+		
+		ally.flinch = 0
+		enemy.flinch = 0
 
 
-def ally_attack(ally, enemy, move):
-	print "%s uses %s!" % (ally.name, ally.moves[move].name)
-	ally.attack(enemy, move)
+def attack_target(attacker, target, move):
+	if attacker.flinch == 0 and attacker.recharge != 1:
+		print "%s uses %s!" % (attacker.name, attacker.moves[move].name)
+		attacker.attack(target, move)
 			
-	if ally.moves[move].effect != None:
-		ally.pass_effect(ally, enemy, move)	
+		if attacker.moves[move].effect != None:
+			attacker.pass_effect(attacker, target, move)	
+	elif attacker.recharge == 1:
+		print "%s has to recharge!" % attacker.name
+		attacker.recharge = 0
 
 
-def enemy_attack(ally, enemy):
-	enemy_move = 'move%d' % randint(1, 4)
-	print "%s uses %s!" % (enemy.name, enemy.moves[enemy_move].name)
-	enemy.attack(ally, enemy_move)
+def check_faint(first, second):
+	if first.type == 'usr':
+		ally = first
+		enemy = second
+	else:
+		ally = second
+		enemy = first
 	
-	if enemy.moves[enemy_move].effect != None:
-		enemy.pass_effect(enemy, ally, enemy_move)
-
-
-def check_faint(ally, enemy):
 	if ally.hp <= 0:
 		print space
 		print "%s fainted!" % ally.name
@@ -97,6 +98,43 @@ def check_faint(ally, enemy):
 		start(intro = False, picka = False, ally = ally)
 
 
+def status_end_of(first, second):
+	checklist = [first, second]
+	for obj in checklist:
+		if obj.status in end_of:
+			end_status = random()
+			if end_status < .25:
+				print "%s faded from %s..." % (obj.status['status'], obj.name)
+				obj.status = None
+			else:
+				obj.hp = obj.hp - obj.status['effect_pwr']
+				print space
+				print obj.status['report'] % obj.name
+
+
+def status_beg_of(first, second, firstmove, secondmove):
+	checklist = [first, second]
+	for obj in checklist:
+		if obj.status in beg_of:
+			end_status = random()
+			if end_status < .25:
+				print "%s faded from %s..." % (obj.status['status'], obj.name)
+				obj.status = None
+				obj.move = 1
+		if obj.status in beg_of:
+			print "%s can't move!" % obj.name
+			print space
+			obj.move = 0
+	if first.move == 1:
+		attack_target(first, second, firstmove)
+		check_faint(first, second)
+		print space
+	if second.move == 1:
+		attack_target(second, first, secondmove)
+		check_faint(first, second)
+	status_end_of(first, second)
+
+
 def display_hp(obj):
 	remaining = '='*int(obj.hp/obj.hpinc)
 	missing = ''
@@ -107,5 +145,16 @@ def display_hp(obj):
 	return bar_form
 
 
-def status_end(ally, enemy):
-	if ally.status == 
+def print_hp(ally, enemy):
+	if ally.status != None and enemy.status != None:
+		print "Ally: %s %s %s" % (ally.name.ljust(14), display_hp(ally), ally.status['status'])
+		print "%s %s %s" % (enemy.name.ljust(20), display_hp(enemy), enemy.status['status'])	
+	elif ally.status != None and enemy.status == None:
+		print "Ally: %s %s %s" % (ally.name.ljust(14), display_hp(ally), ally.status['status'])
+		print "%s %s" % (enemy.name.ljust(20), display_hp(enemy))
+	elif enemy.status != None and ally.status == None:
+		print "Ally: %s %s" % (ally.name.ljust(14), display_hp(ally))
+		print "%s %s %s" % (enemy.name.ljust(20), display_hp(enemy), enemy.status['status'])
+	else:
+		print "Ally: %s %s" % (ally.name.ljust(14), display_hp(ally))
+		print "%s %s" % (enemy.name.ljust(20), display_hp(enemy))
