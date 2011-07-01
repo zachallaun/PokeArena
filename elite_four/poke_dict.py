@@ -14,6 +14,11 @@ class Pokemon(object):
 		self.status = status
 	
 	
+	def initialize(self):
+		self.maxhp = self.hp
+		self.hpinc = self.maxhp / 20.0
+	
+	
 	def handle_miss(self, abil_type, power, acc, crit):
 		
 		miss = random()
@@ -23,7 +28,7 @@ class Pokemon(object):
 			self.handle_dmg(abil_type, power, crit)
 			
 		else:
-			print "\tThe attack misses!"
+			print "The attack misses!"
 	
 	
 	def handle_dmg(self, abil_type, power, crit):
@@ -32,15 +37,15 @@ class Pokemon(object):
 		
 		if abil_type in self.moredmg:
 			power = power * 2
-			print "\tIt's super effective!"
+			print "It's super effective!"
 			self.handle_crit(power, crit)
 		elif abil_type in self.lessdmg:
 			power = power / 2
-			print "\tIt's not very effective..."
+			print "It's not very effective..."
 			self.handle_crit(power, crit)
 		elif abil_type in self.nodmg:
 			power = 0
-			print "\tIt doesn't affect %s." % self.name	
+			print "It doesn't affect %s." % self.name	
 		else:
 			self.handle_crit(power, crit)
 	
@@ -51,10 +56,10 @@ class Pokemon(object):
 		
 		if crit == 'yes' and crit_chance < .13:
 			power = power + (power * .5)
-			print "\tIt's a critical hit!"
+			print "It's a critical hit!"
 		elif crit_chance < .07:
 			power = power + (power * .5)
-			print "\tIt's a critical hit!"
+			print "It's a critical hit!"
 		
 		self.handle_hp(power)
 	
@@ -62,7 +67,7 @@ class Pokemon(object):
 	def handle_hp(self, power):
 		if power != 0:
 			self.hp = self.hp - power
-			print "\tIt hits %s for %d!" % (self.name, power)
+			print "It hits %s for %d!" % (self.name, power)
 	
 	
 	def attack(self, target, move):
@@ -74,8 +79,13 @@ class Pokemon(object):
 		)
 	
 	
-	def pass_effect(self, target, effect, effect_chance):
-		target.handle_effect(effect, effect_chance)
+	def pass_effect(self, attacker, opp, move):
+		if attacker.moves[move].effect.effect_dict['target'] == 'self':
+			target = attacker
+		else:
+			target = opp
+		
+		target.handle_effect(attacker.moves[move].effect, attacker.moves[move].effect_chance)
 	
 	
 	def handle_effect(self, effect, effect_chance):
@@ -87,6 +97,8 @@ class Pokemon(object):
 			
 			if effect.effect_dict['target'] == 'self':
 				self.hp = self.hp + effect.effect_dict['effect_pwr']
+				if self.hp > self.maxhp:
+					self.hp = self.maxhp
 			
 			try:
 				self.status = effect.effect_dict['status']
@@ -94,7 +106,6 @@ class Pokemon(object):
 				pass
 				
 			print effect.effect_dict['printed'] % self.name
-				
 			
 		else:
 			effect = None
@@ -116,7 +127,7 @@ class Aerodactyl(Pokemon):
 			'move3':wingattack,
 			'move4':stoneedge
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 	
@@ -137,7 +148,7 @@ class Alakazam(Pokemon):
 			'move3':recover,
 			'move4':shadowball
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 	
@@ -158,7 +169,7 @@ class Arbok(Pokemon):
 			'move3':gunkshot,
 			'move4':bite
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 	
@@ -179,7 +190,7 @@ class Charizard(Pokemon):
 			'move3':dragonrush,
 			'move4':wingattack
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 	
@@ -200,7 +211,7 @@ class Dewgong(Pokemon):
 			'move3':gigaimpact,
 			'move4':icebeam
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 	
@@ -221,7 +232,7 @@ class Dragonair(Pokemon):
 			'move3':dragonrush,
 			'move4':thunderbolt
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 	
@@ -242,7 +253,7 @@ class Dragonite(Pokemon):
 			'move3':wingattack,
 			'move4':dragonrush
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -262,7 +273,7 @@ class Exeggutor(Pokemon):
 			'move3':leafstorm,
 			'move4':psyshock
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -282,7 +293,7 @@ class Gengar(Pokemon):
 			'move3':lick,
 			'move4':darkpulse
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -302,7 +313,7 @@ class Golbat(Pokemon):
 			'move3':aircutter,
 			'move4':poisonfang
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -322,7 +333,7 @@ class Gyarados(Pokemon):
 			'move3':icebeam,
 			'move4':darkpulse
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -342,7 +353,7 @@ class Hitmonchan(Pokemon):
 			'move3':rocktomb,
 			'move4':firepunch
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -362,7 +373,7 @@ class Lapras(Pokemon):
 			'move3':bodyslam,
 			'move4':sheercold
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -382,7 +393,7 @@ class Machamp(Pokemon):
 			'move3':rocktomb,
 			'move4':brickbreak
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -402,7 +413,7 @@ class Mewtwo(Pokemon):
 			'move3':aurasphere,
 			'move4':energyball
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -422,7 +433,7 @@ class Onyx(Pokemon):
 			'move3':rocktomb,
 			'move4':irontail
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -442,7 +453,7 @@ class Rhydon(Pokemon):
 			'move3':poisonjab,
 			'move4':rocktomb
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
@@ -462,7 +473,7 @@ class Slowbro(Pokemon):
 			'move3':psychic,
 			'move4':gigaimpact
 		}
-		status = None
+		
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
