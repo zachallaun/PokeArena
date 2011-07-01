@@ -494,3 +494,5 @@ class Slowbro(Pokemon):
 		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
 	
 
+
+poke_list = ['Aerodactyl','Alakazam','Arbok','Charizard','Dewgong','Dragonair','Dragonite','Exeggutor','Gengar','Golbat','Gyarados','Hitmonchan','Lapras','Machamp','Mewtwo','Onyx','Rhydon','Slowbro']

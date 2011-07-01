@@ -13,16 +13,35 @@ retaining all attribute modifications that may have occurred."""
 	print space
 	if intro:
 		print """Hello, and welcome to the PokeArena.
-Please pick an ally and an enemy."""
+Please pick an ally and an enemy from
+the following list:"""
 		print space
+	print_poke()
+	print space
 	if picka:
-		ally = input("Enter a valid Pokemon to command: ")
-		ally = ally()
-		ally.initialize()
-	if picke:	
-		enemy = input("Enter a valid Pokemon to battle: ")
-		enemy = enemy()
-		enemy.initialize()
+		ally_chosen = False
+		while ally_chosen == False:
+			ally = raw_input("Enter a valid Pokemon to command: ").lower().capitalize()
+			if ally in poke_list:
+				ally = eval(ally)
+				ally = ally()
+				ally.initialize()
+				ally_chosen = True
+			else:
+				print "You can't choose that!"
+				print space
+	if picke:
+		enemy_chosen = False
+		while enemy_chosen == False:	
+			enemy = raw_input("Enter a valid Pokemon to battle: ").lower().capitalize()
+			if enemy in poke_list:
+				enemy = eval(enemy)
+				enemy = enemy()
+				enemy.initialize()
+				enemy_chosen = True
+			else:
+				print "You can't choose that!"
+				print space
 	print space
 	print "Good luck!"
 	print space
@@ -30,6 +49,20 @@ Please pick an ally and an enemy."""
 	print "Foe sends out %s!" % enemy.name
 	battle(ally, enemy)
 
+
+def print_poke():
+	for i in range(0,3):
+		print poke_list[i].ljust(12),
+	print poke_list[3].ljust(12)
+	for i in range(4,7):
+		print poke_list[i].ljust(12),
+	print poke_list[7].ljust(12)
+	for i in range(8,11):
+		print poke_list[i].ljust(12),
+	print poke_list[11].ljust(12)
+	for i in range(12,15):
+		print poke_list[i].ljust(12),
+	print poke_list[15].ljust(12)
 
 def battle(ally, enemy, retry = False):
 	ally.type = 'usr'
