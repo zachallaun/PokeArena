@@ -23,8 +23,7 @@ the following list:"""
 		while ally_chosen == False:
 			ally = raw_input("Enter a valid Pokemon to command: ").lower().capitalize()
 			if ally in poke_list:
-				ally = eval(ally)
-				ally = ally()
+				ally = eval(ally)()
 				ally.initialize()
 				ally_chosen = True
 			else:
@@ -35,8 +34,7 @@ the following list:"""
 		while enemy_chosen == False:	
 			enemy = raw_input("Enter a valid Pokemon to battle: ").lower().capitalize()
 			if enemy in poke_list:
-				enemy = eval(enemy)
-				enemy = enemy()
+				enemy = eval(enemy)()
 				enemy.initialize()
 				enemy_chosen = True
 			else:
