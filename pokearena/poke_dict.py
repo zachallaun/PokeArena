@@ -3,7 +3,7 @@ from poke_moves import *
 
 class Pokemon(object):
 	
-	def __init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status):
+	def __init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves):
 		self.name = name
 		self.moredmg = moredmg
 		self.lessdmg = lessdmg
@@ -11,7 +11,7 @@ class Pokemon(object):
 		self.hp = hp
 		self.speed = speed
 		self.moves = moves
-		self.status = status
+		self.status = None
 	
 	
 	def initialize(self):
@@ -132,62 +132,63 @@ class Pokemon(object):
 
 class Aerodactyl(Pokemon):
 	def __init__(self):
-		name = "Aerodactyl"
-		moredmg = ['water','electric','ice','rock','steel']
-		lessdmg = ['normal','fire','poison','flying','bug']
-		nodmg = []
-		hp = 270
-		speed = 265
-		moves = {
+		attrs = {
+		"name": "Aerodactyl",
+		"moredmg": ['water','electric','ice','rock','steel'],
+		"lessdmg": ['normal','fire','poison','flying','bug'],
+		"nodmg": [],
+		"hp": 270,
+		"speed": 265,
+		"moves": {
 			'move1':hyperbeam,
 			'move2':ancientpower,
 			'move3':wingattack,
 			'move4':stoneedge
+		},
+		
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
-	
-	
+		super(Aerodactyl, self).__init__(**attrs)
 
 
 class Alakazam(Pokemon):
 	
 	def __init__(self):
-		name = "Alakazam"
-		moredmg = ['bug','ghost','dark']
-		lessdmg = ['fight','psychic']
-		nodmg = []
-		hp = 220
-		speed = 245
-		moves = {
+		attrs = {
+		"name": "Alakazam",
+		"moredmg": ['bug','ghost','dark'],
+		"lessdmg": ['fight','psychic'],
+		"nodmg": [],
+		"hp": 220,
+		"speed": 245,
+		"moves": {
 			'move1':psychic,
 			'move2':thunderwave,
 			'move3':recover,
 			'move4':shadowball
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
-	
+		}
+		super(Alakazam, self).__init__(**attrs)
 	
 
 
 class Arbok(Pokemon):
 	
 	def __init__(self):
-		name = "Arbok"
-		moredmg = ['ground','psychic']
-		lessdmg = ['grass','fight','poison','bug']
-		nodmg = []
-		hp = 230
-		speed = 165
-		moves = {
+		attrs = {
+		"name": "Arbok",
+		"moredmg": ['ground','psychic'],
+		"lessdmg": ['grass','fight','poison','bug'],
+		"nodmg": [],
+		"hp": 230,
+		"speed": 165,
+		"moves": {
 			'move1':sludgebomb,
 			'move2':irontail,
 			'move3':gunkshot,
 			'move4':bite
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Arbok, self).__init__(**attrs)
 	
 	
 
@@ -195,20 +196,21 @@ class Arbok(Pokemon):
 class Charizard(Pokemon):
 	
 	def __init__(self):
-		name = "Charizard"
-		moredmg = ['water','electric','rock']
-		lessdmg = ['fire','grass','fight','bug','steel']
-		nodmg = ['ground']
-		hp = 266
-		speed = 205
-		moves = {
+		attrs = {
+		"name": "Charizard",
+		"moredmg": ['water','electric','rock'],
+		"lessdmg": ['fire','grass','fight','bug','steel'],
+		"nodmg": ['ground'],
+		"hp": 266,
+		"speed": 205,
+		"moves": {
 			'move1':flareblitz,
 			'move2':flamethrower,
 			'move3':dragonrush,
 			'move4':wingattack
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Charizard, self).__init__(**attrs)
 	
 	
 
@@ -216,20 +218,21 @@ class Charizard(Pokemon):
 class Dewgong(Pokemon):
 	
 	def __init__(self):
-		name = "Dewgong"
-		moredmg = ['electric','grass','fight','rock']
-		lessdmg = ['water','ice']
-		nodmg = []
-		hp = 290
-		speed = 145
-		moves = {
+		attrs = {
+		"name": "Dewgong",
+		"moredmg": ['electric','grass','fight','rock'],
+		"lessdmg": ['water','ice'],
+		"nodmg": [],
+		"hp": 290,
+		"speed": 145,
+		"moves": {
 			'move1':surf,
 			'move2':signalbeam,
 			'move3':gigaimpact,
 			'move4':icebeam
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Dewgong, self).__init__(**attrs)
 	
 	
 
@@ -237,20 +240,21 @@ class Dewgong(Pokemon):
 class Dragonair(Pokemon):
 	
 	def __init__(self):
-		name = "Dragonair"
-		moredmg = ['ice','dragon']
-		lessdmg = ['fire','water','electric','grass']
-		nodmg = []
-		hp = 232
-		speed = 145
-		moves = {
+		attrs = {
+		"name": "Dragonair",
+		"moredmg": ['ice','dragon'],
+		"lessdmg": ['fire','water','electric','grass'],
+		"nodmg": [],
+		"hp": 232,
+		"speed": 145,
+		"moves": {
 			'move1':hyperbeam,
 			'move2':aquatail,
 			'move3':dragonrush,
 			'move4':thunderbolt
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Dragonair, self).__init__(**attrs)
 	
 	
 
@@ -258,240 +262,252 @@ class Dragonair(Pokemon):
 class Dragonite(Pokemon):
 	
 	def __init__(self):
-		name = "Dragonite"
-		moredmg = ['ice','rock','dragon']
-		lessdmg = ['fire','water','grass','fight','bug']
-		nodmg = ['ground']
-		hp = 292
-		speed = 165
-		moves = {
+		attrs = {
+		"name": "Dragonite",
+		"moredmg": ['ice','rock','dragon'],
+		"lessdmg": ['fire','water','grass','fight','bug'],
+		"nodmg": ['ground'],
+		"hp": 292,
+		"speed": 165,
+		"moves": {
 			'move1':hyperbeam,
 			'move2':thunderbolt,
 			'move3':wingattack,
 			'move4':dragonrush
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Dragonite, self).__init__(**attrs)
 	
 
 
 class Exeggutor(Pokemon):
 	
 	def __init__(self):
-		name = "Exeggutor"
-		moredmg = ['fire','ice','poison','flying','bug','ghost','dark']
-		lessdmg = ['water','electric','grass','fight','ground','psychic']
-		nodmg = []
-		hp = 300
-		speed = 115
-		moves = {
+		attrs = {
+		"name": "Exeggutor",
+		"moredmg": ['fire','ice','poison','flying','bug','ghost','dark'],
+		"lessdmg": ['water','electric','grass','fight','ground','psychic'],
+		"nodmg": [],
+		"hp": 300,
+		"speed": 115,
+		"moves": {
 			'move1':gigadrain,
 			'move2':eggbomb,
 			'move3':leafstorm,
 			'move4':psyshock
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Exeggutor, self).__init__(**attrs)
 	
 
 
 class Gengar(Pokemon):
 	
 	def __init__(self):
-		name = "Gengar"
-		moredmg = ['ground','psychic','ghost','dark']
-		lessdmg = ['grass','poison','bug']
-		nodmg = ['normal','fight']
-		hp = 230
-		speed = 225
-		moves = {
+		attrs = {
+		"name": "Gengar",
+		"moredmg": ['ground','psychic','ghost','dark'],
+		"lessdmg": ['grass','poison','bug'],
+		"nodmg": ['normal','fight'],
+		"hp": 230,
+		"speed": 225,
+		"moves": {
 			'move1':shadowball,
 			'move2':sludgebomb,
 			'move3':lick,
 			'move4':darkpulse
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Gengar, self).__init__(**attrs)
 	
 
 
 class Golbat(Pokemon):
 	
 	def __init__(self):
-		name = "Golbat"
-		moredmg = ['electric','ice','psychic','rock']
-		lessdmg = ['grass','fight','poison','bug']
-		nodmg = ['ground']
-		hp = 260
-		speed = 185
-		moves = {
+		attrs = {
+		"name": "Golbat",
+		"moredmg": ['electric','ice','psychic','rock'],
+		"lessdmg": ['grass','fight','poison','bug'],
+		"nodmg": ['ground'],
+		"hp": 260,
+		"speed": 185,
+		"moves": {
 			'move1':toxic,
 			'move2':bite,
 			'move3':aircutter,
 			'move4':poisonfang
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Golbat, self).__init__(**attrs)
 	
 
 
 class Gyarados(Pokemon):
 	
 	def __init__(self):
-		name = "Gyarados"
-		moredmg = ['electric','rock']
-		lessdmg = ['fire','water','fight','bug','steel']
-		nodmg = ['ground']
-		hp = 300
-		speed = 167
-		moves = {
+		attrs = {
+		"name": "Gyarados",
+		"moredmg": ['electric','rock'],
+		"lessdmg": ['fire','water','fight','bug','steel'],
+		"nodmg": ['ground'],
+		"hp": 300,
+		"speed": 167,
+		"moves": {
 			'move1':aquatail,
 			'move2':thunder,
 			'move3':icebeam,
 			'move4':darkpulse
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Gyarados, self).__init__(**attrs)
 	
 
 
 class Hitmonchan(Pokemon):
 	
 	def __init__(self):
-		name = "Hitmonchan"
-		moredmg = ['flying','psychic']
-		lessdmg = ['bug','rock','dark']
-		nodmg = []
-		hp = 210
-		speed = 250
-		moves = {
+		attrs = {
+		"name": "Hitmonchan",
+		"moredmg": ['flying','psychic'],
+		"lessdmg": ['bug','rock','dark'],
+		"nodmg": [],
+		"hp": 210,
+		"speed": 250,
+		"moves": {
 			'move1':skyuppercut,
 			'move2':machpunch,
 			'move3':rocktomb,
 			'move4':firepunch
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Hitmonchan, self).__init__(**attrs)
 	
 
 
 class Lapras(Pokemon):
 	
 	def __init__(self):
-		name = "Lapras"
-		moredmg = ['electric','grass','fight','rock']
-		lessdmg = ['water','ice']
-		nodmg = []
-		hp = 370
-		speed = 125
-		moves = {
+		attrs = {
+		"name": "Lapras",
+		"moredmg": ['electric','grass','fight','rock'],
+		"lessdmg": ['water','ice'],
+		"nodmg": [],
+		"hp": 370,
+		"speed": 125,
+		"moves": {
 			'move1':surf,
 			'move2':icebeam,
 			'move3':bodyslam,
 			'move4':sheercold
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Lapras, self).__init__(**attrs)
 	
 
 
 class Machamp(Pokemon):
 	
 	def __init__(self):
-		name = "Machamp"
-		moredmg = ['flying','psychic']
-		lessdmg = ['bug','rock','dark']
-		nodmg = []
-		hp = 290
-		speed = 115
-		moves = {
+		attrs = {
+		"name": "Machamp",
+		"moredmg": ['flying','psychic'],
+		"lessdmg": ['bug','rock','dark'],
+		"nodmg": [],
+		"hp": 290,
+		"speed": 115,
+		"moves": {
 			'move1':crosschop,
 			'move2':earthquake,
 			'move3':rocktomb,
 			'move4':brickbreak
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Machamp, self).__init__(**attrs)
 	
 
 
 class Mewtwo(Pokemon):
 	
 	def __init__(self):
-		name = "Mewtwo"
-		moredmg = ['bug','ghost','dark']
-		lessdmg = ['fight','psychic']
-		nodmg = []
-		hp = 322
-		speed = 265
-		moves = {
+		attrs = {
+		"name": "Mewtwo",
+		"moredmg": ['bug','ghost','dark'],
+		"lessdmg": ['fight','psychic'],
+		"nodmg": [],
+		"hp": 322,
+		"speed": 265,
+		"moves": {
 			'move1':psychic,
 			'move2':recover,
 			'move3':aurasphere,
 			'move4':energyball
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Mewtwo, self).__init__(**attrs)
 	
 
 
 class Onyx(Pokemon):
 	
 	def __init__(self):
-		name = "Onyx"
-		moredmg = ['water','grass','ice','fight','ground','steel']
-		lessdmg = ['normal','fire','poison','flying','rock']
-		nodmg = ['electric']
-		hp = 340
-		speed = 145
-		moves = {
+		attrs = {
+		"name": "Onyx",
+		"moredmg": ['water','grass','ice','fight','ground','steel'],
+		"lessdmg": ['normal','fire','poison','flying','rock'],
+		"nodmg": ['electric'],
+		"hp": 340,
+		"speed": 145,
+		"moves": {
 			'move1':earthquake,
 			'move2':stoneedge,
 			'move3':rocktomb,
 			'move4':irontail
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Onyx, self).__init__(**attrs)
 	
 
 
 class Rhydon(Pokemon):
 	
 	def __init__(self):
-		name = "Rhydon"
-		moredmg = ['water','grass','ice','fight','ground','steel']
-		lessdmg = ['normal','fire','poison','flying','rock']
-		nodmg = ['electric']
-		hp = 320
-		speed = 85
-		moves = {
+		attrs = {
+		"name": "Rhydon",
+		"moredmg": ['water','grass','ice','fight','ground','steel'],
+		"lessdmg": ['normal','fire','poison','flying','rock'],
+		"nodmg": ['electric'],
+		"hp": 320,
+		"speed": 85,
+		"moves": {
 			'move1':takedown,
 			'move2':earthquake,
 			'move3':poisonjab,
 			'move4':rocktomb
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Rhydon, self).__init__(**attrs)
 	
 
 
 class Slowbro(Pokemon):
 	
 	def __init__(self):
-		name = "Slowbro"
-		moredmg = ['electric','grass','bug','ghost','dark']
-		lessdmg = ['fire','water','ice','fight','psychic','steel']
-		nodmg = []
-		hp = 300
-		speed = 65
-		moves = {
+		attrs = {
+		"name": "Slowbro",
+		"moredmg": ['electric','grass','bug','ghost','dark'],
+		"lessdmg": ['fire','water','ice','fight','psychic','steel'],
+		"nodmg": [],
+		"hp": 300,
+		"speed": 65,
+		"moves": {
 			'move1':surf,
 			'move2':icebeam,
 			'move3':psychic,
 			'move4':gigaimpact
 		}
-		status = None
-		Pokemon.__init__(self, name, moredmg, lessdmg, nodmg, hp, speed, moves, status)
+		}
+		super(Slowbro, self).__init__(**attrs)
 	
 
 

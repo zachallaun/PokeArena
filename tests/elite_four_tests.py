@@ -1,5 +1,5 @@
 from nose.tools import *
-import elite_four
+import pokearena
 
 def setup():
 	print "SETUP!"
