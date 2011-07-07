@@ -1,7 +1,7 @@
 # PokeArena #
 ### v0.1 ###
 
-PokeArena is a small project that I developed to learn a bit about Python.
+PokeArena is a small project that I developed with Jorge Espinoza to learn a bit about Python.
 
 The game can be launched only from the terminal with:
 
